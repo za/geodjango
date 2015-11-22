@@ -58,3 +58,6 @@ target/
 
 # virtualenv dir
 .venv/*
+
+# swap files
+*.swp

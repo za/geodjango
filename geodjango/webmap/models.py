@@ -6,3 +6,5 @@ from djgeojson.fields import PointField
 class MushroomSpot(models.Model):
 	geom = PointField()
 
+	def __str__(self):
+		return("%s" % self.geom)

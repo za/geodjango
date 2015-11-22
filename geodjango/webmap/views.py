@@ -1,9 +1,15 @@
 from django.shortcuts import render
 
-from django.contrib import admin
-from leaflet.admin contrib LeafletGeoAdmin
+# Register your models here.
 from .models import MushroomSpot
 
-# Register your models here.
+def home(request):
+	alist = []
 
-admin.site.register(MushroomSpot, LeafletGeoAdmin) Create your views here.
+	mushroomspots = MushroomSpot.objects.all()
+	for mushroomspot in mushroomspots:
+		alist.append(mushroomspot)
+
+	context_dict = {'qs_results': alist}
+
+	return render(request, 'map.html', context_dict)
